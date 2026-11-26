@@ -43,6 +43,7 @@
         direnv
         awww
         polkit-agent
+        pi
 
         alacritty
         fish
