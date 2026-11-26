@@ -12,6 +12,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    microvm = {
+      url = "github:astro/microvm.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ungoogled = {
       url = "github:lewelove/ungoogled-flake";
       inputs.nixpkgs.follows = "nixpkgs";
