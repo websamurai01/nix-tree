@@ -41,6 +41,14 @@ in
         source = "/home/${id.user}/dotfiles";
         mountPoint = "/home/${id.user}/dotfiles";
       }
+      # The whole home directory lives on the host, so everything under it
+      # survives a VM restart. Shares below mount inside this one.
+      {
+        proto = "virtiofs";
+        tag = "home-box";
+        source = "/home/${id.user}/virtual/box";
+        mountPoint = "/home/${id.user}";
+      }
       {
         proto = "virtiofs";
         tag = "git";
