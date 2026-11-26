@@ -41,6 +41,12 @@ in
         source = "/home/${id.user}/dotfiles";
         mountPoint = "/home/${id.user}/dotfiles";
       }
+      {
+        proto = "virtiofs";
+        tag = "git";
+        source = "/home/${id.user}/git";
+        mountPoint = "/home/${id.user}/git";
+      }
     ];
 
     volumes = [
