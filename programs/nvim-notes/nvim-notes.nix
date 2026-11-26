@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  flake.nixosModules.nvim-notes = { ... }: {
-    hm.link.".config/nvim-notes" = ./.config/nvim-notes;
+  flake.nixosModules.nvim-notes = { dotfiles, ... }: {
+    hm.file.".config/nvim-notes" = dotfiles.link ".config/nvim-notes";
   };
 }

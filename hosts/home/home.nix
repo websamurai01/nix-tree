@@ -19,6 +19,7 @@
       ++ (with self.nixosModules; [
         # Core
         id
+        dotfiles
         system
 
         # Modules

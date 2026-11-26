@@ -2,7 +2,7 @@
 
 {
   flake.nixosModules.hyprland =
-    { pkgs, ... }:
+    { pkgs, dotfiles, ... }:
     {
       programs.hyprland = {
         enable = true;
@@ -27,6 +27,6 @@
         };
       };
 
-      hm.link.".config/hypr" = ./.config/hypr;
+      hm.file.".config/hypr" = dotfiles.link ".config/hypr";
     };
 }

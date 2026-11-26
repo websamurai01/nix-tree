@@ -1,9 +1,9 @@
 { ... }:
 
 {
-  flake.nixosModules.nvim = { pkgs, ... }: {
+  flake.nixosModules.nvim = { pkgs, dotfiles, ... }: {
     environment.systemPackages = [ pkgs.neovim ];
 
-    hm.link.".config/nvim" = ./.config/nvim;
+    hm.file.".config/nvim" = dotfiles.link ".config/nvim";
   };
 }

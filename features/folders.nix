@@ -1,14 +1,13 @@
 { ... }:
 
 {
-  flake.nixosModules.folders =
-    { lib, ... }:
-    let
-      entries = builtins.readDir ../folders;
-    in
-    {
-      hm.link = lib.mapAttrs' (
-        name: _: lib.nameValuePair name (../folders + "/${name}")
-      ) entries;
+  flake.nixosModules.folders = { dotfiles, ... }: {
+    hm.file = {
+      ".applications" = dotfiles.link ".applications";
+      ".bashrc" = dotfiles.link ".bashrc";
+      ".commands" = dotfiles.link ".commands";
+      ".scripts" = dotfiles.link ".scripts";
+      "Wallpapers" = dotfiles.link "Wallpapers";
     };
+  };
 }

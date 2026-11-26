@@ -1,9 +1,9 @@
 { ... }:
 
 {
-  flake.nixosModules.fuzzel = { pkgs, ... }: {
+  flake.nixosModules.fuzzel = { pkgs, dotfiles, ... }: {
     environment.systemPackages = [ pkgs.fuzzel ];
 
-    hm.link.".config/fuzzel" = ./.config/fuzzel;
+    hm.file.".config/fuzzel" = dotfiles.link ".config/fuzzel";
   };
 }

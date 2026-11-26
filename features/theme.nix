@@ -2,7 +2,7 @@
 
 {
   flake.nixosModules.theme =
-    { pkgs, ... }:
+    { pkgs, dotfiles, ... }:
     {
       fonts = {
         enableDefaultPackages = true;
@@ -33,11 +33,11 @@
       programs.dconf.enable = true;
 
       hm = {
-        link = {
-          ".config/fontconfig" = ./.config/fontconfig;
-          ".config/gtk-3.0/bookmarks" = ./.config/gtk-3.0/bookmarks;
-          ".config/qt5ct" = ./.config/qt5ct;
-          ".config/qt6ct" = ./.config/qt6ct;
+        file = {
+          ".config/fontconfig" = dotfiles.link ".config/fontconfig";
+          ".config/gtk-3.0/bookmarks" = dotfiles.link ".config/gtk-3.0/bookmarks";
+          ".config/qt5ct" = dotfiles.link ".config/qt5ct";
+          ".config/qt6ct" = dotfiles.link ".config/qt6ct";
         };
 
         dconf.settings = {

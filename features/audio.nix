@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  flake.nixosModules.audio = { ... }: {
+  flake.nixosModules.audio = { dotfiles, ... }: {
     security.rtkit.enable = true;
 
     services.pipewire = {
@@ -12,6 +12,6 @@
       wireplumber.enable = true;
     };
 
-    hm.link.".config/wireplumber" = ./.config/wireplumber;
+    hm.file.".config/wireplumber" = dotfiles.link ".config/wireplumber";
   };
 }

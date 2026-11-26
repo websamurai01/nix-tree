@@ -1,9 +1,9 @@
 { ... }:
 
 {
-  flake.nixosModules.xremap = { pkgs, ... }: {
+  flake.nixosModules.xremap = { pkgs, dotfiles, ... }: {
     environment.systemPackages = [ pkgs.xremap ];
 
-    hm.link.".config/xremap" = ./.config/xremap;
+    hm.file.".config/xremap" = dotfiles.link ".config/xremap";
   };
 }

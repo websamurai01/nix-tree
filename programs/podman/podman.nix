@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  flake.nixosModules.podman = { ... }: {
+  flake.nixosModules.podman = { dotfiles, ... }: {
     virtualisation.containers.enable = true;
 
     virtualisation.podman = {
@@ -21,6 +21,6 @@
       };
     };
 
-    hm.link.".config/containers" = ./.config/containers;
+    hm.file.".config/containers" = dotfiles.link ".config/containers";
   };
 }

@@ -1,10 +1,10 @@
 { ... }:
 
 {
-  flake.nixosModules.waybar = { pkgs, ... }: {
+  flake.nixosModules.waybar = { pkgs, dotfiles, ... }: {
     environment.systemPackages = [ pkgs.waybar ];
 
-    hm.link.".config/waybar" = ./.config/waybar;
+    hm.file.".config/waybar" = dotfiles.link ".config/waybar";
 
     hm.systemd.user.services.waybar = {
       Unit = {

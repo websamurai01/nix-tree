@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  flake.nixosModules.fish = { ... }: {
-    hm.link.".config/fish" = ./.config/fish;
+  flake.nixosModules.fish = { dotfiles, ... }: {
+    hm.file.".config/fish" = dotfiles.link ".config/fish";
   };
 }

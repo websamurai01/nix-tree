@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  flake.nixosModules.uwsm = { ... }: {
-    hm.link.".config/uwsm" = ./.config/uwsm;
+  flake.nixosModules.uwsm = { dotfiles, ... }: {
+    hm.file.".config/uwsm" = dotfiles.link ".config/uwsm";
   };
 }
