@@ -1,6 +1,18 @@
-{ pkgs, ... }:
+{ id, pkgs, ... }:
 
 {
+  hm.programs.ssh = {
+    enable = true;
+    enableDefaultConfig = false;
+    settings = {
+      box = {
+        HostName = "127.0.0.1";
+        Port = 2223;
+        User = id.user;
+      };
+    };
+  };
+
   programs.amnezia-vpn.enable = true;
 
   environment.systemPackages = with pkgs; [
