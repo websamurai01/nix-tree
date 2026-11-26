@@ -15,6 +15,7 @@
         ./packages.nix
         ./system.nix
         ./home-manager.nix
+        ./microvm.nix
       ]
       ++ (with self.nixosModules; [
         # Core
