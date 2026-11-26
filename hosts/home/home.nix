@@ -63,7 +63,7 @@
         xremap
 
         # Scripts
-        nrs
+        rebuild
         ns
         nt
       ]);
