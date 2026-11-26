@@ -40,7 +40,6 @@
         librechat
         hyprland
         thunar
-        v2raya
         direnv
         awww
         polkit-agent
