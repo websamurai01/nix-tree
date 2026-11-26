@@ -2,7 +2,7 @@
 
 {
   flake.nixosModules.system =
-    { pkgs, id, ... }:
+    { pkgs, lib, id, ... }:
     {
       time.timeZone = "Europe/Moscow";
       i18n.defaultLocale = "en_US.UTF-8";
@@ -40,6 +40,8 @@
         ];
         shell = pkgs.fish;
         autoSubUidGidRange = true;
+        # Box has no other way in than ssh on port 2223.
+        openssh.authorizedKeys.keys = lib.optional (id.sshKey != "") id.sshKey;
       };
 
       services.getty.autologinUser = id.user;
