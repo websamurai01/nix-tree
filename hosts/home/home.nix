@@ -46,6 +46,7 @@
         pi
 
         alacritty
+        bun
         fish
         foot
         fuzzel

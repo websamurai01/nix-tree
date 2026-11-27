@@ -51,6 +51,15 @@
           backgroundService = true;
           serviceEnvironment = [ "XDG_CURRENT_DESKTOP=Hyprland" ];
         };
+
+        # DevTools endpoint for the coding agent in box. It never opens by
+        # itself; the agent creates tabs in it. Box reaches the port at
+        # 10.0.2.2:9222, which slirp maps to this host's 127.0.0.1.
+        instances.cdp = {
+          extraArgs = [ "--remote-debugging-port=9222" ];
+          desktopEntry = false;
+          serviceEnvironment = [ "XDG_CURRENT_DESKTOP=Hyprland" ];
+        };
       };
     };
 }
